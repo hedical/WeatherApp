@@ -7,16 +7,35 @@ $(document).ready(function () {
 
     // Init functions
     renderHistory(history)
+    $("main").hide()
 
+    //Button start find my weather
+    $("#findMyWeather").on("click", function (e) {
+        e.preventDefault();
+        $("#start").hide()
+        $("main").show()
+
+        userInput = $("#firstTextInput").val();
+        apiCalls(userInput).then(function () {
+            if (history.length > 7) {
+                history.splice(0, 1)
+            }
+            history.push(userInput);
+            window.localStorage.setItem("city", JSON.stringify(history));
+            renderHistory(history)
+            $("#textInput").val("")
+        })
+    })
 
     // Button submit to start
     $("#submitBtn").on("click", function (e) {
+
         e.preventDefault();
         userInput = $("#textInput").val();
         console.log(history);
 
 
-        apiCalls(userInput).then(function () { // si tout s'est bien passé, tu executes la suite (en attendant la fin de l'api)
+        apiCalls(userInput).then(function () {
             if (history.length > 7) {
                 history.splice(0, 1)
             }
@@ -50,7 +69,7 @@ $(document).ready(function () {
 
         for (i = 0; i < arr1.length; i++) {
 
-            $(".list-group").prepend(`<li class="list-group-item">${arr1[i]}</li>`)
+            $(".list-group").prepend(`<li class="btn list-group-item mb-2" style="opacity:85%">${arr1[i]}</li>`)
 
         }
     }

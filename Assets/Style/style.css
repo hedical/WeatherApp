@@ -1,3 +1,8 @@
 p {
     font-size: small;
 }
+
+
+#start {
+    height: 100vh;
+}
