@@ -17,18 +17,18 @@
 
 
     <main class="container m-0 p-0">
-        <div class="row">
-            <aside class="col-3 bg-secondary">
-                <div class="card bg-secondary">
-                    <div class="card-body bg-secondary">
-                        <h5 class="card-title">Search for a city :</h5>
+        <div class="row col-12">
+            <aside class=" bg-dark">
+                <div class="card bg-dark">
+                    <div class="card-body bg-dark">
+                        <h5 class="card-title text-light">Search for a city :</h5>
                         <form class="form-inline">
                             <input id="textInput" class="col-6 form-control mr-sm-2" type="search" placeholder="Search"
                                 aria-label="Search">
                             <button id="submitBtn" class="col-4 btn btn-outline-success my-2 my-sm-0"
                                 type="submit">S</button>
                         </form>
-                        <h5 class="card-title mt-2">Last search :</h5>
+                        <h5 class="card-title text-light mt-2">Last search :</h5>
                         <ul class="list-group">
                         </ul>
                     </div>
@@ -36,8 +36,9 @@
             </aside>
 
 
-            <div id="result" class="col-9 p-0">
-                <div class="card">
+
+            <div id="result" class="col-8 p-3" style="opacity: 85%; ;">
+                <div class="card ml-3 mt-2">
                     <div class="card-body">
                         <h5 id="mainCityName" class="card-title">cityName (date)</h5>
                         <p id="mainTemp" class="card-text">Temperature :</p>
@@ -49,9 +50,10 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="card-title ml-3 mt-2">Forecast for the next hours :</h5>
+                <h5 class="card-title ml-3 mt-2 mb-2">Forecast for the next hours :</h5>
                 <div id="forecast" class="row"></div>
             </div>
+        </div>
 
 
 
