@@ -9,7 +9,7 @@ $(document).ready(function () {
     renderHistory(history)
     $("main").hide()
 
-    //Button start find my weather
+    //Button start find my weather on landing page
     $("#findMyWeather").on("click", function (e) {
         e.preventDefault();
         $("#start").hide()
@@ -27,12 +27,11 @@ $(document).ready(function () {
         })
     })
 
-    // Button submit to start
+    // Button submit to start a new search
     $("#submitBtn").on("click", function (e) {
 
         e.preventDefault();
         userInput = $("#textInput").val();
-        console.log(history);
 
 
         apiCalls(userInput).then(function () {
@@ -46,6 +45,7 @@ $(document).ready(function () {
         })
     })
 
+    // Button on last search items
     $(document).on("click", "li", function () {
         var citySelection = $(this).text()
 
@@ -53,6 +53,7 @@ $(document).ready(function () {
 
     })
 
+    // Function to render information on the city researched
     function renderCity(str1, str2, str3, str4, str5) {
         $("#mainCityName").text(str1 + " - " + str2)
         $("#mainTemp").text("Temperature : " + str3 + " °F")
@@ -61,6 +62,7 @@ $(document).ready(function () {
     }
 
 
+    // Function to render the last search on the side
     function renderHistory(arr1) {
         if (!arr1) {
             return;
@@ -73,10 +75,11 @@ $(document).ready(function () {
 
         }
     }
-
+    // Function containing all API calls
     function apiCalls(str1) {
 
-        return $.ajax({
+        // Call Open weather, weather info
+        return $.ajax({ // Return to handle a 404
             type: "GET",
             url: `https://api.openweathermap.org/data/2.5/weather?q=${str1},us&units=imperial&appid=${apiKey}`,
             dataType: "json",
@@ -89,7 +92,6 @@ $(document).ready(function () {
             var lon = parseInt(response.coord.lon);
             var date = moment().format('LL');
 
-            console.log(response)
 
             renderCity(cityMain, date, temp, hum, wind)
 
@@ -101,7 +103,6 @@ $(document).ready(function () {
                 dataType: "json",
             }).then(function (response) {
                 var uv = response.value
-                console.log(response)
 
                 $("#mainUV").text(uv)
             })
@@ -135,9 +136,7 @@ $(document).ready(function () {
                 dataType: "json",
             }).then(function (response) {
                 $("#bgimg").attr("src", "")
-                console.log(response);
 
-                console.log(response.results[0].urls.full);
                 $("body").attr("style", `background-image: url(${response.results[0].urls.full})
                 ;background-size: 100%; background-repeat: no-repeat;`)
             })
