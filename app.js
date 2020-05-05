@@ -117,7 +117,7 @@ $(document).ready(function () {
                 $("#forecast").html("");
                 for (i = 0; i < response.list.length; i++) {
                     $("#forecast").append(`
-                    <div class="card col-2 mt-2 ml-4 mb-0">
+                    <div class="card col-lg-2 col-sm-12 mt-2 ml-4 mb-0">
                         <div class="card-body">
                             <h6 class="card-title">${moment.unix(response.list[i].dt)}</h6>
                             <img alt="overcast clouds" src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png" width="50" height="50">
