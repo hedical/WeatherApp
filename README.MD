@@ -5,12 +5,12 @@ In this exercice, the goal is to create a weather app, to display information ab
 This exercise was the opportunity to understand how to request information using APIs
 
 # Setup
-Simply click on this link to access the my quizz : https://hedical.github.io/WeatherApp/…
+Simply click on this link to access the my weather app : https://hedical.github.io/WeatherApp/…
 
 # Instructions and Challenges
 - Use components from Bootsrap
-- Use to jQuery library
-- Use to Moment.js library
+- Use jQuery library
+- Use Moment.js library
 - Create different API calls
 - Store information in local storage and retreive it
 
