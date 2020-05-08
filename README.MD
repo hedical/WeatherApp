@@ -39,3 +39,7 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
+# Future improvements
+- Improve display of the forecast info
+- Add a button on the bottom left 'download this picture'
+- Add an light chart (only a line without frame) below the forcast to show the evolution of the weather on the actual day 
